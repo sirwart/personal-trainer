@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "personal-trainer"
+version = "0.1.0"
+description = "An easy-to-use library for training personalized AI models"
+authors = ["Brian Smith <ohohvi@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+numpy = "^1.26.0"
+datasets = "^2.14.5"
+transformers = "^4.34.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
