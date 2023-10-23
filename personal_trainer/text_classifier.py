@@ -62,8 +62,8 @@ class BaseTextClassifier:
             problem_type=problem_type
         )
 
-        # Since we have a randomly initiated classifier head, we need to make a minimum number of
-        # parameter updates to have a well performing model. Because of this we pick our number of
+        # Since we currently have a randomly initiated classifier head, we need to make a minimum number
+        # of parameter updates to have a well performing model. Because of this we pick our number of
         # epochs based on how many parameter updates we want to make, that's been chosen heuristically
         # based on the default learning rate
         target_total_batches = 350
