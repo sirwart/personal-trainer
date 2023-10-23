@@ -1,5 +1,6 @@
 import json
 import numpy as np
+import math
 import os
 import torch
 
@@ -60,7 +61,22 @@ class BaseTextClassifier:
             num_labels=self.label_mapper.num_labels(),
             problem_type=problem_type
         )
-        training_args = TrainingArguments(output_dir='/tmp/personal_trainer', evaluation_strategy="epoch", num_train_epochs=3)
+
+        # Since we have a randomly initiated classifier head, we need to make a minimum number of
+        # parameter updates to have a well performing model. Because of this we pick our number of
+        # epochs based on how many parameter updates we want to make, that's been chosen heuristically
+        # based on the default learning rate
+        target_total_batches = 350
+        batch_size = 8
+        batches_per_epoch = math.ceil(len(split_dataset['train']) / batch_size)
+        num_epochs = math.ceil(target_total_batches / batches_per_epoch)
+
+        training_args = TrainingArguments(
+            output_dir=output_dir,
+            evaluation_strategy="epoch",
+            num_train_epochs=num_epochs,
+            per_device_train_batch_size=batch_size,
+        )
 
         def compute_metrics(eval_pred):
             logits, labels = eval_pred
