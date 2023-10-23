@@ -72,7 +72,7 @@ class BaseTextClassifier:
         num_epochs = math.ceil(target_total_batches / batches_per_epoch)
 
         training_args = TrainingArguments(
-            output_dir=output_dir,
+            output_dir='/tmp/personal_trainer',
             evaluation_strategy="epoch",
             num_train_epochs=num_epochs,
             per_device_train_batch_size=batch_size,
