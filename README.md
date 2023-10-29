@@ -4,6 +4,14 @@ Personal Trainer is a Python library for easily training models on your own data
 
 Personal Trainer is still under development.
 
+# Installation
+
+You can install Personal Trainer using `pip` from the `model-personal-trainer` package.
+
+```
+pip install model-personal-trainer
+```
+
 # Usage
 
 Each type of model is represented by a class in Personal Trainer. For example, one of the simplest models to use is a TextClassifier.

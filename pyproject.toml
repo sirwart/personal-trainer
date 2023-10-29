@@ -1,10 +1,13 @@
 [tool.poetry]
-name = "personal-trainer"
+name = "model-personal-trainer"
 version = "0.1.0"
 description = "An easy-to-use library for training personalized AI models"
 authors = ["Brian Smith <ohohvi@gmail.com>"]
 license = "MIT"
 readme = "README.md"
+packages = [
+    {include = "personal_trainer"}
+]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
